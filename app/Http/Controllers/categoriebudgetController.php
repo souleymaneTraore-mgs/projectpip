@@ -41,6 +41,8 @@ class categoriebudgetController extends Controller
             'libelle_budget'=>'required'
 
         ]);
+
+        return categoriebudget::create($request->al())->json();
     }
 
     /**
