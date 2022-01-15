@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\recette_nature_eco;
+use App\Models\recette_nature_eco;
 
 /**
      * Display a listing of the resource.
@@ -31,13 +31,14 @@ class recette_nature_ecoController extends Controller
     public function store(Request $request)
     {
         $request ->validate([
+
             'classe',
             'article',
             'paragraphe',
             'ligne',
             'rubrique',
             'sous_rubrique',
-            'libelle_nature_eco' =>'required'
+            'libelle_nature_eco'
         ]);
 
         return recette_nature_eco::create($request->all());

@@ -14,7 +14,7 @@ class CreateRecetteNatureEcosTable extends Migration
     public function up()
     {
         Schema::create('recette_nature_ecos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('classe');
             $table->string('article');
             $table->string('paragraphe');
