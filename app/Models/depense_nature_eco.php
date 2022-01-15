@@ -9,7 +9,7 @@ class depense_nature_eco extends Model
 {
     use HasFactory;
 
-    $fillable =[
+    protected $fillable =[
 
         'classe',
         'article',
@@ -20,5 +20,8 @@ class depense_nature_eco extends Model
         'libelle_nature_eco'
     ];
 
+
     
+
+
 }

@@ -9,7 +9,7 @@ class tablesection extends Model
 {
     use HasFactory;
 
-    $fillable=[
+    protected $fillable=[
 
         'codesection',
         'libellesection',

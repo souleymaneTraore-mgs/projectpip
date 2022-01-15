@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class sourcedepense extends Model
 {
     use HasFactory;
-    $fillable=[
+    protected $fillable=[
 
         'code_source_dep',
         'identifiant_dep'

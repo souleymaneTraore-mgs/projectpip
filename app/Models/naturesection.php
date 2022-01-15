@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class naturesection extends Model
 {
     use HasFactory;
-    $fillable=[
+    protected $fillable=[
         'code_section',
         'nature_section',
         'abreviation'

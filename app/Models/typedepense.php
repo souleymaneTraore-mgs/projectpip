@@ -9,7 +9,7 @@ class typedepense extends Model
 {
     use HasFactory;
 
-    $fillable =[
+    protected $fillable =[
 
         'code_type_dep',
         'indentifiant_type_dep',

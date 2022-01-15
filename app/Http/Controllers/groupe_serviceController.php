@@ -37,9 +37,9 @@ class groupe_serviceController extends Controller
     {
         $request->validate([
 
-            'id'
-            'code_groupeserv'=>'required'
-            'libelle_service'=>'required',
+            
+            'code_groupeserv'=>'required',
+            'libelle_service'=>'required'
         ]);
     }
 

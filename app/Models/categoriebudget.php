@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class categoriebudget extends Model
 {
     use HasFactory;
-    $fillable=[
+    protected $fillable=[
 
         'code_buget',
         'libelle_budget'

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class mission extends Model
 {
     use HasFactory;
-    $fillable=[
+    protected $fillable=[
         'code_mission',
         'categorie_mission'
 

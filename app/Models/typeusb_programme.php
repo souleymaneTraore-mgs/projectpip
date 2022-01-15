@@ -9,7 +9,7 @@ class typeusb_programme extends Model
 {
     use HasFactory;
 
-    $fillable=[
+    protected $fillable=[
 
         'code_usb_prog',
         'libelle_usb_prog'

@@ -9,7 +9,7 @@ class typeusb_dotation extends Model
 {
     use HasFactory;
 
-    $fillable=[
+    protected $fillable=[
 
         'code_usb_dot',
         'libelle_usb_dot'

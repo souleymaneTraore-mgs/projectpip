@@ -9,10 +9,9 @@ class groupe_service extends Model
 {
     use HasFactory;
 
-    $fillable=[
-
-        'id'
+    protected $fillable=[
+    
         'code_groupeserv',
-        'libelle_service',
+        'libelle_service'
     ];
 }
