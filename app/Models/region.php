@@ -13,6 +13,22 @@ class region extends Model
     protected $fillable = [
         'code_region',
         'libelle_region',
+        'zone_id'
     ];
+
+
+    protected $table ='region';
+
+    
+    public function zones()
+    {
+        return $this->BelongsTo('App\Models\zone');
+    }
+
+
+    public function payss()
+    {
+        return $this->hasMany('App\Model\pays');
+    }
 
 }

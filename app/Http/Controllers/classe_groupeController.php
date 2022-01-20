@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\classe;
+use App\Models\classe_groupe;
 
-class classeController extends Controller
+class classe_groupeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class classeController extends Controller
      */
     public function index()
     {
-        return classe::all();
+        return classe_groupe::all();
 
     }
 
@@ -30,11 +30,14 @@ class classeController extends Controller
     {
         $request->validate([
 
-            'codeclasse'=>'required'
+        'code_grp_classe'=>'required',
+        'libelle_grp_classe'=>'required',
+        'groupe_id'=>'required',
+        'classe_id'=>'required'
 
         ]);
 
-        return classe::create($request->all());
+        return classe_groupe::create($request->all());
     }
 
 
@@ -49,7 +52,7 @@ class classeController extends Controller
 
     public function show($id)
     {
-        return classe::find($id);
+        return classe_groupe::find($id);
     }
 
 
@@ -67,9 +70,9 @@ class classeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $classe = classe::find($id);
-        $classe->update($request->all());
-        return $classe;
+        $class_grp = classe_groupe::find($id);
+        $class_grp->update($request->all());
+        return $class_grp;
     }
 
 
@@ -82,7 +85,7 @@ class classeController extends Controller
      */
      public function destroy($id)
      {
-        return classe::destroy($id);
+        return classe_groupe::destroy($id);
      }
 
 
@@ -92,13 +95,13 @@ class classeController extends Controller
     /**
      * Search for a sourcefinance.
      *
-     * @param  string  $classe
+     * @param  string  $class_grp
      * @return \Illuminate\Http\Response
      */
 
     public function search($classe)
     {
-        return classe::where('codeclasse','like','%'.$classe.'%')->get();
+        return classe_groupe::where('libelle_grp_classe','like','%'.$class_grp.'%')->get();
 
     }
 

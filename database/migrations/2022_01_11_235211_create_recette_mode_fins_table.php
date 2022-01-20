@@ -16,7 +16,13 @@ class CreateRecetteModeFinsTable extends Migration
         Schema::create('recette_mode_fins', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codefin');
+            $table->string('libellefin');
             $table->timestamps();
+
+
+            $table->integer('sourcefinancement_id')->constrained();
+            $table->integer('typefinancement_id')->constrained();
+
         });
     }
 

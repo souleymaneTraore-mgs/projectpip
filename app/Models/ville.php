@@ -11,7 +11,23 @@ class ville extends Model
     protected $fillable[
 
         'code_ville',
-        'libelle_ville'
+        'libelle_ville',
+        'pays_id'
     ];
+
+
+    public function payss()
+    {
+        return $this->BelongTo('App\Model\pays');
+    }
+
+
+    public function departements()
+    {
+        return $this->hasMany('App\Model\departement');
+    }
+
+
+
 
 }

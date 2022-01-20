@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypeGroupesTable extends Migration
+class CreateClasseGroupesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,17 @@ class CreateTypeGroupesTable extends Migration
      * @return void
      */
     public function up()
+
     {
-        Schema::create('type_groupes', function (Blueprint $table) {
-            
+        Schema::create('classe_groupes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('codeType_grp');
-            $table->string('libelle_Type_grp');
+            $table->string('code_grp_classe');
+            $table->string('libelle_grp_classe');
             $table->timestamps();
 
 
-            
+            $table->integer('groupe_id')->constrained();
+            $table->integer('classe_id')->constrained();
         });
     }
 
@@ -31,7 +32,8 @@ class CreateTypeGroupesTable extends Migration
      * @return void
      */
     public function down()
+    
     {
-        Schema::dropIfExists('type_groupes');
+        Schema::dropIfExists('classe_groupes');
     }
 }

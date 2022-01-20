@@ -81,7 +81,7 @@ class depense_nature_ecoController extends Controller
     public function update(Request $request, $id)
     {
         $dep_nat =depense_nature_eco::find($id);
-        $dep_nat= depense_nature_eco::update($request->all());
+        $dep_nat->update($request->all());
         return $dep_nat;
     }
 

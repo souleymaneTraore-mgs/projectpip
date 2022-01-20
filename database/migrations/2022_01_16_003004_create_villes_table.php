@@ -18,6 +18,9 @@ class CreateVillesTable extends Migration
             $table->string('code_ville');
             $table->string('libelle_ville');
             $table->timestamps();
+
+
+            $table->integer('pays_id')->constrained();
         });
     }
 

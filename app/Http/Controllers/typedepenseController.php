@@ -78,7 +78,7 @@ class typedepenseController extends Controller
     public function update(Request $request, $id)
     {
         $typedep =typedepense::find($id);
-        $typedep=typedepense::update($request->all());
+        $typedep->update($request->all());
 
         return $typedep;
     }
@@ -103,7 +103,7 @@ class typedepenseController extends Controller
     * @return \Illuminate\Http\Response
     */
 
-    public fuction search($typedep)
+    public function search($typedep)
     {
         return typedepense::where('indentifiant_type_dep','like','%'.$typedep.'%')->get();
     }

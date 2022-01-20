@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sourcedepense extends Model
+class continent extends Model
 {
     use HasFactory;
 
-    protected $table='sourcedepense';
-    protected $fillable=[
+    protected $table='continent';
 
-        'code_source_dep',
-        'identifiant_dep'
+    protected $fillable = [
+
+        'code_continent',
+        'libelle_continent'
     ];
 }

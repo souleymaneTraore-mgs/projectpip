@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sous_prefecture extends Model
+class numerogroupe extends Model
 {
     use HasFactory;
 
+
+    protected $table = 'numerogroupe';
+
+
     protected $fillable = [
 
-        'code_sp',
-        'libelle_sp',
-        'departement_id'
+        'codenumgroup'
     ];
 
 
-
-    public function sousprefectures()
+    public function servicegroupes()
     {
-        return $this->BelongsTo('App\Models\departement');
+        return $this->hasMany(servicegroupe::class);
     }
-
 }

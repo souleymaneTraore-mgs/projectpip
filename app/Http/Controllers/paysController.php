@@ -39,7 +39,8 @@ class paysController extends Controller
 
             
             'code_pays'=>'required',
-            'libelle_pays'=>'required'
+            'libelle_pays'=>'required',
+            'region_id'=>'required'
         ]);
     }
 
@@ -75,7 +76,7 @@ class paysController extends Controller
     public function update(Request $request, $id)
     {
         $groupserv =pays::find($id);
-        $groupserv=pays::update($request->all());
+        $groupserv->update($request->all());
     }
 
     /**

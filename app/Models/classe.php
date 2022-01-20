@@ -13,4 +13,10 @@ class classe extends Model
 
         'codeclasse'
     ];
+
+
+    public function classe_groupes()
+    {
+        return $this->hasMany(classe_groupe::class);
+    }
 }

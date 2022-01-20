@@ -18,6 +18,10 @@ class CreatePaysTable extends Migration
             $table->string('code_pays');
             $table->string('libelle_pays');
             $table->timestamps();
+
+
+
+            $table->integer('region_id')->constrained();
         });
     }
 

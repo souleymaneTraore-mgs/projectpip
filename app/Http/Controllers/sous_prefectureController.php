@@ -39,6 +39,7 @@ class sous_prefectureController extends Controller
 
         'code_sp'=>'required',
         'libelle_sp'=>'required',
+        'departement_id'
 
         ]);
 
@@ -77,7 +78,7 @@ class sous_prefectureController extends Controller
     public function update(Request $request, $id)
     {
         $sp=sous_prefecture::find($id);
-        $sp=sous_prefecture::update($request->all());
+        $sp->update($request->all());
         return $sp;
     }
 
@@ -102,6 +103,6 @@ class sous_prefectureController extends Controller
 
     public function search($sp)
     {
-        return tablesec::where('libelle_sp','like','%'.$tablesec.'%')->get();
+        return sous_prefecture::where('libelle_sp','like','%'.$sp.'%')->get();
     }
 }

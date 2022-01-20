@@ -18,6 +18,9 @@ class CreateDepartementsTable extends Migration
             $table->string('code_departement');
             $table->string('libelle_departement');
             $table->timestamps();
+
+            
+            $table->integer('ville_id')->constrained();
         });
     }
 

@@ -18,6 +18,10 @@ class CreateMinisteresTable extends Migration
             $table->string('code_ministere');
             $table->string('libelle_ministere');
             $table->timestamps();
+
+
+
+            $table->integer('tablesection_id')->constrained();
         });
     }
 

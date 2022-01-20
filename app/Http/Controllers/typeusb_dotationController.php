@@ -77,7 +77,7 @@ class typeusb_dotationController extends Controller
     public function update(Request $request, $id)
     {
         $usb_dot =typeusb_dotation::find($id);
-        $usb_dot=typeusb_dotation::update($request->all());
+        $usb_dot->update($request->all());
         return $usb_dot;
     }
 

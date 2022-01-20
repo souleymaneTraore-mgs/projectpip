@@ -15,4 +15,10 @@ class type_groupe extends Model
         'libelle_Type_grp'
 
     ];
+
+    public function groupes()
+    
+    {
+        return $this->hasMany('App\Models\groupe');
+    }
 }

@@ -31,7 +31,8 @@ class ministereController extends Controller
         $request->validate([
 
             'code_ministere'=>'required',
-            'ilbelle_ministere'=>'required'
+            'ilbelle_ministere'=>'required',
+            'tablesection_id' =>'required'
 
         ]);
 
@@ -66,10 +67,10 @@ class ministereController extends Controller
 
 
 
-    public function update(Request $request $id)
+    public function update(Request $request, $id)
     {
         $minist = ministere::find($id);
-        $minist>update($request->all());
+        $minist->update($request->all());
         return $minist;
     }
 

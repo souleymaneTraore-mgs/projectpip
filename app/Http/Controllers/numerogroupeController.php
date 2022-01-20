@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\tablesection;
+use App\Models\numerogroupe;
 
-class tablesectionController extends Controller
+class numerogroupeController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return tablesection::all();
+        return numerogroupe::all();
     }
 
     /**
@@ -37,13 +37,11 @@ class tablesectionController extends Controller
     {
         $request->validate([
 
-        'codesection'=>'required',
-        'libellesection'=>'required',
-        'abreviation'
+            'code'=>'required'
 
         ]);
 
-        return tablesection::create($request->all());
+        return numerogroupe::create($request->al())->json();
     }
 
     /**
@@ -54,7 +52,7 @@ class tablesectionController extends Controller
      */
     public function show($id)
     {
-        return tablesection::find($id);
+        return numerogroupe::find($id);
     }
 
     /**
@@ -77,9 +75,9 @@ class tablesectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $req=tablesection::find($id);
-        $req->update($request->all());
-        return $req;
+        $numgroup =numerogroupe::find($id);
+        $numgroup->update($request->all());
+        return $numgroup;
     }
 
     /**
@@ -88,21 +86,23 @@ class tablesectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
+
     {
-        return tablesection::destroy($id);
+        return numerogroupe::destroy($id);
     }
 
 
-    /**
-    * Search for table section
-    *
-    * @param string $tablesec
-    * @return \Illuminate\Http\Response
-    */
+     /**
+     * Search for a division
+     *
+     * @param  string  $ngroupe
+     * @return \Illuminate\Http\Response
+     */
 
-    public function search($tablesec)
+     public function search($ngroupe)
     {
-        return tablesec::where('libellesection','like','%'.$tablesec.'%')->get();
+        return numerogroupe::where('codenumgroup','like','%'.$ngroupe.'%')->get();
     }
 }

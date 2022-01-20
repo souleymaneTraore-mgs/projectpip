@@ -13,11 +13,16 @@ class CreateZonesTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('zones', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codezone');
             $table->string('libelle_zone');
             $table->timestamps();
+
+
+
+            
         });
     }
 

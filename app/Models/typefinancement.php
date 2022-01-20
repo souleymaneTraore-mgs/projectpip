@@ -15,4 +15,11 @@ class typefinancement extends Model
         'abreviation'
 
     ];
+
+
+
+    public function modefin()
+    {
+        return $this->hasMany(recette_mode_fin::class);
+    }
 }

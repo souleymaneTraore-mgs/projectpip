@@ -38,7 +38,8 @@ class regionController extends Controller
         $request->validate([
 
             'code_region'=>'required',
-            'libelle_region'=>'required'
+            'libelle_region'=>'required',
+            'zone_id'=>'required'
 
         ]);
 

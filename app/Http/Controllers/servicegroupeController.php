@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\tablesection;
+use App\Models\servicegroupe;
 
-class tablesectionController extends Controller
+class servicegroupeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class tablesectionController extends Controller
      */
     public function index()
     {
-        return tablesection::all();
+        return servicegroupe::all();
     }
 
     /**
@@ -37,13 +37,13 @@ class tablesectionController extends Controller
     {
         $request->validate([
 
-        'codesection'=>'required',
-        'libellesection'=>'required',
-        'abreviation'
-
+        'codeservicegroupe'=>'required',
+        'libelle_servicegroupe'=>'required',
+        'typeservice_id'=>'required',
+        'numerogroupe_id'=>'required'
         ]);
 
-        return tablesection::create($request->all());
+        return servicegroupe::create($request->al())->json();
     }
 
     /**
@@ -54,7 +54,7 @@ class tablesectionController extends Controller
      */
     public function show($id)
     {
-        return tablesection::find($id);
+        return servicegroupe::find($id);
     }
 
     /**
@@ -76,10 +76,11 @@ class tablesectionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+
     {
-        $req=tablesection::find($id);
-        $req->update($request->all());
-        return $req;
+        $servgroup =servicegroupe::find($id);
+        $servgroup->update($request->all());
+        return $servgroup;
     }
 
     /**
@@ -88,21 +89,22 @@ class tablesectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
+
     {
-        return tablesection::destroy($id);
+        return servicegroupe::destroy($id);
     }
 
+     /**
+     * Search for a division
+     *
+     * @param  string  $servgrp
+     * @return \Illuminate\Http\Response
+     */
 
-    /**
-    * Search for table section
-    *
-    * @param string $tablesec
-    * @return \Illuminate\Http\Response
-    */
-
-    public function search($tablesec)
+     public function search($servgrp)
     {
-        return tablesec::where('libellesection','like','%'.$tablesec.'%')->get();
+        return servicegroupe::where('libelle_servicegroupe','like','%'.$servgrp.'%')->get();
     }
 }

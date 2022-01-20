@@ -62,10 +62,7 @@ class sourcefinancementController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-
-
-    public function update(Request $request $id)
+    public function update(Request $request,$id)
     {
         $sourcefin = sourcefinancement::find($id);
         $sourcefin->update($request->all());

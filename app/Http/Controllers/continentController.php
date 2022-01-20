@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\classe;
+use App\Models\continent;
 
-class classeController extends Controller
+class continentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class classeController extends Controller
      */
     public function index()
     {
-        return classe::all();
+        return continent::all();
 
     }
 
@@ -30,11 +30,12 @@ class classeController extends Controller
     {
         $request->validate([
 
-            'codeclasse'=>'required'
+            'code_continent'=>'required',
+            'libelle_continent'=>'required'
 
         ]);
 
-        return classe::create($request->all());
+        return continent::create($request->all());
     }
 
 
@@ -49,7 +50,7 @@ class classeController extends Controller
 
     public function show($id)
     {
-        return classe::find($id);
+        return continent::find($id);
     }
 
 
@@ -67,9 +68,9 @@ class classeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $classe = classe::find($id);
-        $classe->update($request->all());
-        return $classe;
+        $contin= continent::find($id);
+        $contin->update($request->all());
+        return $contin;
     }
 
 
@@ -82,7 +83,7 @@ class classeController extends Controller
      */
      public function destroy($id)
      {
-        return classe::destroy($id);
+        return continent::destroy($id);
      }
 
 
@@ -92,14 +93,15 @@ class classeController extends Controller
     /**
      * Search for a sourcefinance.
      *
-     * @param  string  $classe
+     * @param  string  $continent
      * @return \Illuminate\Http\Response
      */
 
-    public function search($classe)
+    public function search($continent)
     {
-        return classe::where('codeclasse','like','%'.$classe.'%')->get();
+        return continent::where('libelle_continent','like','%'.$continent.'%')->get();
 
     }
 
+    
 }

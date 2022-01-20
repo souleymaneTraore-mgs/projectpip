@@ -68,11 +68,11 @@ class type_groupeController extends Controller
 
 
 
-    public function update(Request $request $id)
+    public function update(Request $request, $id)
     {
-        $classe = type_groupe::find($id);
-        $classe>update($request->all());
-        return $classe;
+        $typeservice = type_groupe::find($id);
+        $typeservice->update($request->all());
+        return $typeservice;
     }
 
 

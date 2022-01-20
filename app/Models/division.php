@@ -14,4 +14,11 @@ class division extends Model
         'libelledivision'
 
     ];
+
+
+    public functon groupes()
+
+    {
+        return $this->hasMany('App\Models\groupe');
+    }
 }

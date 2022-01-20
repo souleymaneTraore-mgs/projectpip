@@ -18,6 +18,10 @@ class CreateGroupesTable extends Migration
             $table->string('codegroupe');
             $table->string('libellegroupe');
             $table->timestamps();
+
+
+            $table->integer('type_groupe_id')->constrained();
+            $table->integer('division_id')->constrained();
         });
     }
 

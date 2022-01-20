@@ -18,6 +18,9 @@ class CreateSousPrefecturesTable extends Migration
             $table->string('code_sp');
             $table->string('libelle_sp');
             $table->timestamps();
+
+
+            $table->integer('departement_id')->constrained();
         });
     }
 

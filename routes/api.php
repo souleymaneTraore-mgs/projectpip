@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\surcedepenseController;
 use App\Http\Controllers\recette_nature_ecoController;
 use App\Http\Controllers\typefinancementController;
 use App\Http\Controllers\sourcefinancementController;
 use App\Http\Controllers\typedepenseController;
-use App\Http\Controllers\sourcedepenseController;
 use App\Http\Controllers\naturesectionController;
 use App\Http\Controllers\missionController;
 use App\Http\Controllers\categoriebudgetController;
@@ -14,6 +14,19 @@ use App\Http\Controllers\typeusb_dotationController;
 use App\Http\Controllers\typeusb_programmeController;
 use App\Http\Controllers\depense_nature_ecoController;
 use App\Http\Controllers\groupe_serviceController;
+use App\Http\Controllers\zoneController;
+use App\Http\Controllers\regionController;
+use App\Http\Controllers\paysController;
+use App\Http\Controllers\villeController;
+use App\Http\Controllers\departementController;
+use App\Http\Controllers\sous_prefectureController;
+use App\Http\Controllers\type_groupeController;
+use App\Http\Controllers\divisionController;
+use App\Http\Controllers\groupeController;
+use App\Http\Controllers\classeController;
+use App\Http\Controllers\classe_groupeController;
+use App\Http\Controllers\ministereController;
+use App\Http\Controllers\recettemodefinController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -79,15 +92,15 @@ Route::get('/nature_section/{id}', [naturesectionController::class,'show']);
 
 //source depense
 
-Route::get('/sourcedep/search/{identifiant_dep}',[sourcedepeseController::class,'search']);
+Route::get('/F/search/{identifiant_dep}',[surcedepenseController::class,'search']);
 
-Route::get('/sourcedep', [sourcedepeseController::class,'index']);
+Route::get('/sourcedep', [surcedepenseController::class,'index']);
 
-Route::get('/sourcedep/{id}', [sourcedepeseController::class,'show']);
+Route::get('/sourcedep/{id}', [surcedepenseController::class,'show']);
 
 //categorie budget
 
-Route::get('/cateorie_budget/search/{identifiant_dep}',[categoriebudgetController::class,'search']);
+Route::get('/categorie_budget/search/{identifiant_dep}',[categoriebudgetController::class,'search']);
 
 Route::get('/categorie_budget', [categoriebudgetController::class,'index']);
 
@@ -155,6 +168,130 @@ Route::get('/groupe_serv', [groupe_serviceController::class,'index']);
 Route::get('/groupe_serv/{id}', [groupe_serviceController::class,'show']);
 
 
+//zone
+
+Route::get('/zone/search/{indentifiant_type_dep}',[zoneController::class,'search']);
+
+Route::get('/zone', [zoneController::class,'index']);
+
+Route::get('/zone/{id}', [zoneController::class,'show']);
+
+//region
+
+
+Route::get('/region/search/{indentifiant_type_dep}',[regionController::class,'search']);
+
+Route::get('/region', [regionController::class,'index']);
+
+Route::get('/region/{id}', [regionController::class,'show']);
+
+//departement
+
+
+Route::get('/departement/search/{indentifiant_type_dep}',[departementController::class,'search']);
+
+Route::get('/departement', [departementController::class,'index']);
+
+Route::get('/departement/{id}', [departementController::class,'show']);
+
+
+//pays
+
+
+Route::get('/pays/search/{indentifiant_type_dep}',[paysController::class,'search']);
+
+Route::get('/pays', [paysController::class,'index']);
+
+Route::get('/pays/{id}', [paysController::class,'show']);
+
+
+
+//ville
+
+
+Route::get('/ville/search/{indentifiant_type_dep}',[villeController::class,'search']);
+
+Route::get('/ville', [villeController::class,'index']);
+
+Route::get('/ville/{id}', [villeController::class,'show']);
+
+
+
+//sous prefecture
+
+Route::get('/sous_prefecture/search/{indentifiant_type_dep}',[sous_prefectureController::class,'search']);
+
+Route::get('/sous_prefecture', [sous_prefectureController::class,'index']);
+
+Route::get('/sous_prefecture/{id}', [sous_prefectureController::class,'show']);
+
+
+
+//type groupe
+
+Route::get('/type_groupe/search/{indentifiant_type_dep}',[type_groupeController::class,'search']);
+
+Route::get('/type_groupe', [type_groupeController::class,'index']);
+
+Route::get('/type_groupe/{id}', [type_groupeController::class,'show']);
+
+
+//division
+
+Route::get('/division/search/{indentifiant_type_dep}',[divisionController::class,'search']);
+
+Route::get('/division', [divisionController::class,'index']);
+
+Route::get('/division/{id}', [divisionController::class,'show']);
+
+
+
+//groupe
+
+
+Route::get('/groupe/search/{indentifiant_type_dep}',[groupeController::class,'search']);
+
+Route::get('/groupe', [divisionController::class,'index']);
+
+Route::get('/groupe/{id}', [divisionController::class,'show']);
+
+
+//classe
+
+
+Route::get('/classe/search/{indentifiant_type_dep}',[classeController::class,'search']);
+
+Route::get('/classe', [divisionController::class,'index']);
+
+Route::get('/classe/{id}', [divisionController::class,'show']);
+
+
+
+//classe_groupe
+
+
+Route::get('/classe_groupe/search/{indentifiant_type_dep}',[classe_groupeController::class,'search']);
+
+Route::get('/classe_groupe', [classe_groupeController::class,'index']);
+
+Route::get('/classe_groupe/{id}', [classe_groupeController::class,'show']);
+
+
+
+
+//ministere
+
+
+Route::get('/ministere/search/{indentifiant_type_dep}',[ministereController::class,'search']);
+
+Route::get('/ministere', [ministereController::class,'index']);
+
+Route::get('/ministere/{id}', [ministereController::class,'show']);
+
+
+
+
+
 
 
 
@@ -202,11 +339,11 @@ Route::group(['middleware' =>['auth:sanctum']], function () {
 
     //source depenses
     
-    Route::post('/sourcedep', [sourcedepeseController::class,'store']);
+    Route::post('/sourcedep', [surcedepenseController::class,'store']);
 
-    Route::put('/sourcedep/{id}', [sourcedepeseController::class,'update']);
+    Route::put('/sourcedep/{id}', [surcedepenseController::class,'update']);
 
-    Route::delete('/sourcedep/{id}', [sourcedepeseController::class,'destroy']);
+    Route::delete('/sourcedep/{id}', [surcedepenseController::class,'destroy']);
 
 
     //categorie budget
@@ -259,11 +396,11 @@ Route::group(['middleware' =>['auth:sanctum']], function () {
     //depense nature economique
 
 
-    Route::post('/sourcedep', [sourcedepeseController::class,'store']);
+    Route::post('/sourcedep', [depense_nature_ecoController::class,'store']);
 
-    Route::put('/sourcedep/{id}', [sourcedepeseController::class,'update']);
+    Route::put('/sourcedep/{id}', [depense_nature_ecoController::class,'update']);
 
-    Route::delete('/sourcedep/{id}', [sourcedepeseController::class,'destroy']);
+    Route::delete('/sourcedep/{id}', [depense_nature_ecoController::class,'destroy']);
 
 
 
@@ -280,12 +417,156 @@ Route::group(['middleware' =>['auth:sanctum']], function () {
 
 
 
+    //zone
+
+
+    Route::post('/zone', [zoneController::class,'store']);
+
+    Route::put('/zone/{id}', [zoneController::class,'update']);
+
+    Route::delete('/zone/{id}', [zoneController::class,'destroy']);
+
+
+
+
+    //region
+
+
+
+    Route::post('/region', [regionController::class,'store']);
+
+    Route::put('/region/{id}', [regionController::class,'update']);
+
+    Route::delete('/region/{id}', [regionController::class,'destroy']);
+
+
+
+
+    //departement
+
+    Route::post('/departement', [departementController::class,'store']);
+
+    Route::put('/departement/{id}', [departementController::class,'update']);
+
+    Route::delete('/departement/{id}', [departementController::class,'destroy']);
+
+
+
+
+
+    //pays
+
+    Route::post('/pays', [paysController::class,'store']);
+
+    Route::put('/pays/{id}', [departementController::class,'update']);
+
+    Route::delete('/pays/{id}', [departementController::class,'destroy']);
+
+
+
+
+
+    //ville
+
+    Route::post('/ville', [villeController::class,'store']);
+
+    Route::put('/ville/{id}', [villeController::class,'update']);
+
+    Route::delete('/ville/{id}', [villeController::class,'destroy']);
 
 
 
 
 
 
+    //sous prefecture
+
+
+    Route::post('/sous_prefecture', [sous_prefectureController::class,'store']);
+
+    Route::put('/sous_prefecture/{id}', [villeController::class,'update']);
+
+    Route::delete('/sous_prefecture/{id}', [villeController::class,'destroy']);
+
+
+
+
+
+
+    //type groupe
+
+    Route::post('/type_groupe', [type_groupeController::class,'store']);
+
+    Route::put('/type_groupe/{id}', [villeController::class,'update']);
+
+    Route::delete('/type_groupe/{id}', [villeController::class,'destroy']);
+
+
+
+
+    //division
+
+    Route::post('/division', [divisionController::class,'store']);
+
+    Route::put('/division/{id}', [divisionController::class,'update']);
+
+    Route::delete('/division/{id}', [divisionController::class,'destroy']);
+
+
+
+
+
+
+    //groupe
+
+    Route::post('/groupe', [groupeController::class,'store']);
+
+    Route::put('/groupe/{id}', [groupeController::class,'update']);
+
+    Route::delete('/groupe/{id}', [groupeController::class,'destroy']);
+
+
+
+
+
+    //classe
+
+    Route::post('/classe', [classeController::class,'store']);
+
+    Route::put('/classe/{id}', [classeController::class,'update']);
+
+    Route::delete('/classe/{id}', [classeController::class,'destroy']);
+
+
+
+
+
+
+
+   //classe_groupe
+
+
+    Route::post('/classe_groupe', [classe_groupeController::class,'store']);
+
+    Route::put('/classe_groupe/{id}', [classe_groupeController::class,'update']);
+
+    Route::delete('/classe_groupe/{id}', [classe_groupeController::class,'destroy']);
+
+
+
+
+
+
+
+
+  //ministere
+
+
+    Route::post('/ministere', [ministereController::class,'store']);
+
+    Route::put('/ministere/{id}', [ministereController::class,'update']);
+
+    Route::delete('/ministere/{id}', [ministereController::class,'destroy']);
 
 
 

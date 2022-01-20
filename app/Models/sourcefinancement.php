@@ -15,4 +15,10 @@ class sourcefinancement extends Model
         'identifiant_source'
 
     ];
+
+
+    public function modefin()
+    {
+        return $this->hasMany(recette_mode_fin::class);
+    }
 }

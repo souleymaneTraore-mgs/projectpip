@@ -75,7 +75,7 @@ class groupe_serviceController extends Controller
     public function update(Request $request, $id)
     {
         $groupserv =groupe_service::find($id);
-        $groupserv=groupe_service::update($request->all());
+        $groupserv->update($request->all());
     }
 
     /**

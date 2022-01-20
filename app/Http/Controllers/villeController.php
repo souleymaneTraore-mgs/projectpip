@@ -31,7 +31,8 @@ class villeController extends Controller
         $request->validate([
 
             'code_ville'=>'required',
-            'libelle_ville'=>'required'
+            'libelle_ville'=>'required',
+            'pays_id'=>'required'
 
         ]);
 
@@ -66,11 +67,11 @@ class villeController extends Controller
 
 
 
-    public function update(Request $request $id)
+    public function update(Request $request, $id)
     {
-        $minist = ville::find($id);
-        $minist>update($request->all());
-        return $minist;
+        $vil = ville::find($id);
+        $vil->update($request->all());
+        return $vil;
     }
 
 

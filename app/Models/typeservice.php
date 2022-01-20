@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sourcedepense extends Model
+class typeservice extends Model
 {
     use HasFactory;
 
-    protected $table='sourcedepense';
-    protected $fillable=[
+    protected $table = 'typeservice';
 
-        'code_source_dep',
-        'identifiant_dep'
+    protected $fillable = [
+
+        'codetypeservice',
+        'libelletypeservice'
     ];
 }

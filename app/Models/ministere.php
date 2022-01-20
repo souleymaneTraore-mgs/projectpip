@@ -12,9 +12,15 @@ class ministere extends Model
 
 
         'code_ministere',
-        'ilbelle_ministere'
+        'ilbelle_ministere',
+        'tablesection_id'
 
 
 
     ];
+
+    public function tablesections()
+    {
+        return $this->BelongsTo(tablesection::class);
+    }
 }
