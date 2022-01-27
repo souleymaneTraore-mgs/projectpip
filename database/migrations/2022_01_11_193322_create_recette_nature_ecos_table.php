@@ -15,13 +15,13 @@ class CreateRecetteNatureEcosTable extends Migration
     {
         Schema::create('recette_nature_ecos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('classe');
-            $table->string('article');
-            $table->string('paragraphe');
-            $table->string('ligne');
-            $table->string('rubrique');
-            $table->string('sous_rubrique');
-            $table->string('libelle_nature_eco');
+            $table->string('classe')->nullable();
+            $table->string('article')->nullable();
+            $table->string('paragraphe')->nullable();
+            $table->string('ligne')->nullable();
+            $table->string('rubrique')->nullable();
+            $table->string('sous_rubrique')->nullable();
+            $table->string('libelle_nature_eco')->nullable();
             $table->timestamps();
         });
     }

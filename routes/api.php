@@ -292,6 +292,11 @@ Route::get('/ministere/{id}', [ministereController::class,'show']);
 
 
 
+Route::get('/import-form',[recette_nature_ecoController::class,'importForm']);
+
+Route::post('/import', [recette_nature_ecoController::class,'import'])->name('recette.import');
+
+
 
 
 

@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class recette_nature_eco extends Model
 {
     use HasFactory;
+
+    protected $table ='recette_nature_ecos';
+
     protected $fillable =[
 
             'classe',

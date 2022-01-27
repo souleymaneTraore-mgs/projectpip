@@ -15,7 +15,7 @@ class CreateNumerogroupesTable extends Migration
     {
         Schema::create('numerogroupes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
+            $table->string('codenumgroup');
             $table->timestamps();
         });
     }

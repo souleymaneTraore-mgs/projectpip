@@ -14,7 +14,7 @@ class villeController extends Controller
      */
     public function index()
     {
-        return ville::all();
+      return ville::all();
 
     }
 
@@ -101,6 +101,15 @@ class villeController extends Controller
     public function search($vil)
     {
         return ville::where('libelle_ville','like','%'.$vil.'%')->get();
+
+    }
+
+    //je dois creer une API dans le dossier api
+    public function villepays()
+    {
+        $ville = ville::all();
+
+        return villeResource::collection($ville);
 
     }
 

@@ -99,7 +99,7 @@ class classe_groupeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function search($classe)
+    public function search($classe_grp)
     {
         return classe_groupe::where('libelle_grp_classe','like','%'.$class_grp.'%')->get();
 

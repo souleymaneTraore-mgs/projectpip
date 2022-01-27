@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\recette_nature_eco;
+use Excel;
+use App\Imports\Recette_nature_ecoImport;
+use App\Http\Resources\recette_natureResource;
 
 /**
      * Display a listing of the resource.
@@ -15,7 +18,10 @@ class recette_nature_ecoController extends Controller
 {
     public function index()
     {
-        return recette_nature_eco::all();
+
+        $recette = recette_nature_eco::all();
+
+        return recette_natureResource::collection($recette);
     }
 
 
@@ -56,7 +62,8 @@ class recette_nature_ecoController extends Controller
 
     public function show($id)
     {
-        return recette_nature_eco::find($id);
+        return recette_natureResource::find($id);
+        //return recette_nature_eco::find($id);
     }
 
 
@@ -112,6 +119,19 @@ class recette_nature_ecoController extends Controller
     }
 
 
+    public function importForm()
+    {
+        return view('import-form');
+    }
+
+
+    public function import(Request $request)
+    {
+        Excel::import(new Recette_nature_ecoImport,$request->file);
+        return "Enregistrement importé avec succès !";
+    }
+
+}
 
 
 
@@ -135,4 +155,4 @@ class recette_nature_ecoController extends Controller
 
 
     
-}
+
