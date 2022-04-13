@@ -25,7 +25,7 @@ class classe_groupe extends Model
         return $this->BelongTo(groupe::class);
     }
 
-    public fuction classes()
+    public function classes()
     {
         return $this->BelongsTo(classe::class);
     }

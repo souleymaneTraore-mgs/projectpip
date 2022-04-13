@@ -27,6 +27,8 @@ use App\Http\Controllers\classeController;
 use App\Http\Controllers\classe_groupeController;
 use App\Http\Controllers\ministereController;
 use App\Http\Controllers\recettemodefinController;
+use App\Http\Controllers\roleController;
+use App\Http\Controllers\statusprivilegesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +44,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+//admin routes
 
+Route::middleware(['auth','role:admin'])->group(function(){
+  Route::get('/private',function(){
+    return 'bonjour Admin';
+  });
+});
 
 //public routes 
 Route::post('/register', [AuthController::class,'register']);
@@ -79,6 +87,20 @@ Route::get('/mission/search/{categorie_mission}',[missionController::class,'sear
 Route::get('/mission', [missionController::class,'index']);
 
 Route::get('/mission{id}', [missionController::class,'show']);
+
+
+
+//statutprivilèges
+
+Route::get('/statut/search/{nomstatut}',[statusprivilegesController::class,'search']);
+
+Route::get('/privileges', [statusprivilegesController::class,'index']);
+
+Route::get('/statut/{id}', [statusprivilegesController::class,'show']);
+
+
+
+
 
 
 //Nature section
@@ -170,7 +192,7 @@ Route::get('/groupe_serv/{id}', [groupe_serviceController::class,'show']);
 
 //zone
 
-Route::get('/zone/search/{indentifiant_type_dep}',[zoneController::class,'search']);
+Route::get('/zone/search/{libelle_zone}',[zoneController::class,'search']);
 
 Route::get('/zone', [zoneController::class,'index']);
 
@@ -249,7 +271,7 @@ Route::get('/division/{id}', [divisionController::class,'show']);
 //groupe
 
 
-Route::get('/groupe/search/{indentifiant_type_dep}',[groupeController::class,'search']);
+Route::get('/groupe/search/{libellegroupe}',[groupeController::class,'search']);
 
 Route::get('/groupe', [divisionController::class,'index']);
 
@@ -289,13 +311,24 @@ Route::get('/ministere', [ministereController::class,'index']);
 Route::get('/ministere/{id}', [ministereController::class,'show']);
 
 
+//role
 
+
+Route::get('/role/search/{libellenamerole}',[roleController::class,'search']);
+
+Route::get('/role', [roleController::class,'index']);
+
+Route::get('/role/{id}', [roleController::class,'show']);
+
+//import
 
 
 Route::get('/import-form',[recette_nature_ecoController::class,'importForm']);
 
 Route::post('/import', [recette_nature_ecoController::class,'import'])->name('recette.import');
 
+
+//statutprivilèges
 
 
 
@@ -572,6 +605,26 @@ Route::group(['middleware' =>['auth:sanctum']], function () {
     Route::put('/ministere/{id}', [ministereController::class,'update']);
 
     Route::delete('/ministere/{id}', [ministereController::class,'destroy']);
+
+
+  //role
+
+
+    Route::post('/role_indo', [roleController::class,'store']);
+
+    Route::put('/role/{id}', [roleController::class,'update']);
+
+    Route::delete('/role/{id}', [roleController::class,'destroy']);
+
+    // Status Privilèges
+
+    Route::post('/statutpriv',[statusprivilegesController::class,'store']);
+
+    Route::put('/privi{id}', [statusprivilegesController::class,'update']);
+
+    Route::delete('/statut_des', [statusprivilegesController::class,'delete']);
+
+
 
 
 

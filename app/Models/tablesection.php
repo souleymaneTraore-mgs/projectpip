@@ -13,13 +13,13 @@ class tablesection extends Model
 
         'codesection',
         'libellesection',
-        'abreviation',
+        'abreviation'
         
 
     ];
 
 
-    public functon ministeres()
+    public function ministeres()
     {
         return $this->hasMany(ministere::class);
     }

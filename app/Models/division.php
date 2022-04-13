@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class division extends Model
 {
     use HasFactory;
-    protected $fillable[
+    protected $fillable=[
 
         'codedivision',
         'libelledivision'
@@ -16,7 +16,7 @@ class division extends Model
     ];
 
 
-    public functon groupes()
+    public function groupes()
 
     {
         return $this->hasMany('App\Models\groupe');

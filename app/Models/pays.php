@@ -11,11 +11,11 @@ class pays extends Model
 
     protected $table= 'pays';
 
-    protected $fillable[
+    protected $fillable=[
 
         'code_pays',
-        'libelle_pays'
-        'region_id',
+        'libelle_pays',
+        'region_id'
     ];
 
     public function regions()

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ville extends Model
 {
     use HasFactory;
-    protected $fillable[
+
+    protected $fillable=[
 
         'code_ville',
         'libelle_ville',

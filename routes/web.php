@@ -25,7 +25,7 @@ Route::get('/test', function(){
 });
 
 
-Route::post('/import-form', function(){
+/*Route::post('/import-form', function(){
     return view('/import-form');
 });
 
@@ -33,7 +33,7 @@ Route::post('/import-form', function(){
 Route::post('/import', function(){
     return view('/import');
 });
-
+*/
 
 Route::get('/hello-world', function(){
     return view('hello-world');

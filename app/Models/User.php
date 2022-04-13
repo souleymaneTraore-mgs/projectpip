@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\statusprivileges;
 
 class User extends Authenticatable
 {
@@ -34,18 +35,7 @@ class User extends Authenticatable
     ];
 
 
-
-   /* public function isAdmin()
-    {
-        return $this->role ==='administrateur';
-    }
-
-
-    public function isUser()
-    {
-        return $this->role ==='utilisateu';
-    }
-*/
+   
 
     /**
      * The attributes that should be cast.
@@ -55,4 +45,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function roles()
+    {
+        return $this->BelongsToMany(statusprivileges::class);
+    }
 }

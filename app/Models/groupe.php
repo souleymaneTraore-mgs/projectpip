@@ -9,10 +9,10 @@ class groupe extends Model
 {
     use HasFactory;
 
-    protected $fillable [
+    protected $fillable =[
 
         'codegroupe',
-        'libellegroupe'
+        'libellegroupe',
         'type_groupe_id',
         'division_id'
     ];

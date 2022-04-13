@@ -7,17 +7,24 @@ use App\Models\recette_nature_eco;
 use Excel;
 use App\Imports\Recette_nature_ecoImport;
 use App\Http\Resources\recette_natureResource;
+use OpenApi\Annotations as OA;
 
-/**
+
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
 
 class recette_nature_ecoController extends Controller
 {
+    
     public function index()
     {
+    
 
         $recette = recette_nature_eco::all();
 

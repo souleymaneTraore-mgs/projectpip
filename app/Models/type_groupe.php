@@ -9,6 +9,7 @@ class type_groupe extends Model
 {
     use HasFactory;
 
+    protected $table ='type_groupe';
     protected $fillable = [
 
         'codeType_grp',

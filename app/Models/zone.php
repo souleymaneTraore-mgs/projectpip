@@ -11,7 +11,7 @@ class zone extends Model
     use HasFactory;
 
 
-    protected $fillable [
+    protected $fillable=[
         'codezone',
         'libelle_zone'
     ];
